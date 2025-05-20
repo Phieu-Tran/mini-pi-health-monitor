@@ -1,0 +1,14 @@
+[Unit]
+Description=Raspberry Pi Network Monitor with Google Chat Alerts
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/pi/Desktop/ping_monitor_chat.py
+WorkingDirectory=/home/pi/Desktop
+StandardOutput=append:/home/pi/pimonitor_logs/daemon_stdout.log
+StandardError=append:/home/pi/pimonitor_logs/daemon_stderr.log
+Restart=always
+User=pi
+
+[Install]
+WantedBy=multi-user.target
